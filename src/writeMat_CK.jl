@@ -1,5 +1,3 @@
-using MAT
-
 function writeMat_CK(path::String, varname::String, var)
     #= write single variable to a mat file
     Inputs:

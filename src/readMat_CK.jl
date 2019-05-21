@@ -1,4 +1,3 @@
-using MAT
 function readMat_CK(path::String, var::String, dataType::DataType = DataType)
     # read a mat file and return  a variable that is converted to specifed datatype
     # by Caesar
