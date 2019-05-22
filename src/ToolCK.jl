@@ -6,6 +6,7 @@ using PyCall, MAT
 
 include("corr_CK.jl")
 include("readMat_CK.jl")
+include("dateRange.jl")
 include("writeMat_CK.jl")
 include("ismember_CK.jl")
 include("nanstd_CK.jl")
