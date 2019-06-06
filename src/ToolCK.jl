@@ -2,8 +2,8 @@ __precompile__()
 
 module ToolCK
 
-using PyCall
 using MAT
+using PyCall
 
 include("corr_CK.jl")
 include("readMat_CK.jl")
