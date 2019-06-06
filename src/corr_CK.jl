@@ -1,8 +1,8 @@
 function corr_CK(data::Matrix)
     # This function is used to calculate the pairwise correlation with p value for input data
-    @pyimport scipy.stats as sas
-    @pyimport pandas as pd
-    @pyimport numpy as np
+    sas = pyimport("scipy.stats")
+    pd = pyimport("pandas")
+    np = pyimport("numpy")
     r = pd.DataFrame(data)[:corr]()
     n = size(data, 1)
     tt= r*np.sqrt((n-2)/(1-r.^2))
