@@ -8,6 +8,6 @@ function corr_CK(data::Matrix)
     tt= r*np.sqrt((n-2)/(1-r.^2))
     PairwiseCorrelation = r[:values]
     PValue = 2 .* sas.t[:cdf](-abs.(tt), n-2)
-
+ 
     return PairwiseCorrelation, PValue
 end
