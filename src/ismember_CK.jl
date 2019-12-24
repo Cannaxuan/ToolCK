@@ -21,7 +21,8 @@ function ismember_CK(arr1 :: Array, arr2 :: Array, by::String = "element")
             arr2 = arr2
         end
         lia = in.(arr1, [arr2])
-        locb = findfirst.([arr2], arr1)
+        # locb = findfirst.([arr2], arr1)
+        locb = indexin(arr1, arr2)
     elseif by == "rows"
         lia = []
         @inbounds for i in 1:size(arr1, 1)
@@ -46,7 +47,7 @@ function ismember_CK(arr1 :: Array, arr2 :: Array, by::String = "element")
     elseif by == "columns"
         arr1 = arr1'
         arr2 = arr2'
-        lia, locb = ismember_CK(arr1, arr2, "rows")
+        lia, locb = ismember_CK(Array(arr1), Array(arr2), "rows")
     end
 
     return lia, locb
@@ -54,9 +55,9 @@ function ismember_CK(arr1 :: Array, arr2 :: Array, by::String = "element")
 end
 
 
-
+#
 # A = [1 3 5 6; 2 4 6 8; 2 4 6 8]
 # B = [1 3 5 7; 2 4 6 8; 2 4 6 8]
-#
+# #
 # lia, locb = ismember_CK(A, B, "columns")
 # lia, locb = ismember_CK(A, B, "rows")
