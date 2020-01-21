@@ -1,3 +1,4 @@
+using Statistics
 function nanMean_CK(data::Array)
     # compute mean of data while ignoring NAN values
     # by Caesar
