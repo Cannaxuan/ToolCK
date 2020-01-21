@@ -4,7 +4,7 @@ function nanMean_CK(data::Array)
     # by Caesar
 
     data = data[.~isnan.(data)][:]
-    mid = mean(data)
+    mid = Statistics.mean(data)
 
     return mid
 end
@@ -15,9 +15,9 @@ function nanMean_CK(data::Matrix, dim::Int)
     # by Caesar
 
     if dim == 1
-        mid = map(i -> try mean(data[.~isnan.(data[:, i]), i]) catch; NaN end, 1:size(data, 2))
+        mid = map(i -> try Statistics.mean(data[.~isnan.(data[:, i]), i]) catch; NaN end, 1:size(data, 2))
     else
-        mid = map(i -> try mean(data[i, .~isnan.(data[i, :])]) catch; NaN end, 1:size(data, 1))
+        mid = map(i -> try Statistics.mean(data[i, .~isnan.(data[i, :])]) catch; NaN end, 1:size(data, 1))
     end
 
     return mid
